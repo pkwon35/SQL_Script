@@ -1,0 +1,37 @@
+USE northwind;
+
+Download from: https://github.com/dalers/mywind
+
+
+/*
+From The Order table:
+a. Show a table with recipient's name, city, state, and shipping_fee
+b. Ordered by shipping_fee, most expensive at the top
+*/
+
+SELECT 
+	-- as changes the column_name
+	ship_name as Recipient_Name,
+    ship_city as City, 
+    ship_state_province as State, 
+    shipping_fee
+FROM 
+	Orders
+ORDER BY 
+	shipping_fee DESC;
+
+
+/*
+From the Order table:
+a. Show a table with state and the sum of all shipping_fee for that state
+	i. Group the individual entries by state
+b. order by shipping_fee, most money at the top
+
+*/
+SELECT ship_state_province as State, 
+sum(shipping_fee) as Sum_of_Shipping_Fee
+FROM orders
+GROUP BY shipping_fee
+ORDER BY 
+	shipping_fee DESC;
+
